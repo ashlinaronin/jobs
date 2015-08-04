@@ -6,7 +6,8 @@ class JobOpening {
     private $pay;
     private $contact;
 
-    function setPay($new_pay) {
+    function setPay($new_pay)
+    {
         $this->pay = (float) $new_pay;
     }
 
@@ -16,15 +17,23 @@ class JobOpening {
 */
 
     function getTitle()
-        {
-            return $this->title;
-        }
-    function getDescript() {
+    {
+        return $this->title;
+    }
+
+    function getDescript()
+    {
         return $this->descript;
     }
-    function getPay(){
+
+    function getPay()
+    {
         return $this->pay;
     }
-    function getContact(){
+
+    function getContact()
+    {
         return $this->contact;
     }
+}
+?>
