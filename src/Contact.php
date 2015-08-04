@@ -6,7 +6,7 @@ class Contact
         "address" => "",
         "hair_color" => "",
         "email" => "",
-        "ssn" => int,
+        "ssn" => 0,
         "bday_month" => 0,
         "bday_day" => 0,
         "bday_year" => 0,
