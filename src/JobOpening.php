@@ -11,11 +11,6 @@ class JobOpening {
         $this->pay = (float) $new_pay;
     }
 
-/*    function setContact($new_contact) {
-        $this->contact =
-    }
-*/
-
     function getTitle()
     {
         return $this->title;
