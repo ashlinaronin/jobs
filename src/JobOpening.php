@@ -35,5 +35,15 @@ class JobOpening {
     {
         return $this->contact;
     }
+    function __construct($job_title, $job_descript, $job_pay, $job_contact)
+    {
+        // $contact parameter must be instance of Contact class
+        $this->title = $job_title;
+        $this->descript = $job_descript;
+        $this->pay = $job_pay;
+        $this->contact = $job_contact;
+    }
 }
+
+
 ?>
