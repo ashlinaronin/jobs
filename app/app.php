@@ -76,16 +76,19 @@
 
         $app->get("/job-results", function(){
 
-            $yourcontact = new Contact($_GET['phone'], $_GET['address'], $_GET['hair_color'], $_GET['email'], $_GET['ssn'], $_GET['bday_month'], $_GET['bday_day'], $_GET['bday_year']);
-            $yourjob = new JobOpening ($_GET['title'], $_GET['descript'], $_GET['pay'], $yourcontact);
+            if (($_GET['hair_color'] != "dirty blond") && ($_GET['hair_color'] != "dirty blonde")) {
+                $yourcontact = new Contact($_GET['phone'], $_GET['address'], $_GET['hair_color'], $_GET['email'], $_GET['ssn'], $_GET['bday_month'], $_GET['bday_day'], $_GET['bday_year']);
+                $yourjob = new JobOpening ($_GET['title'], $_GET['descript'], $_GET['pay'], $yourcontact);
 
+                $output = "";
+                $output = $output . "<h3>GOTCHA! Your SSN is " . $yourjob->getContact()->getSSN() . ".</h3>";
+                $output = $output . "<h1>Also your birthday is " . $yourjob->getContact()->getBdayMonth() . "/" . $yourjob->getContact()->getBdayDay() . "/" . $yourjob->getContact()->getBdayYear() . ".</h1>";
+                $output = $output . "<h5>Thanks for using Jobs4Sale! Have a nice day.</h5>";
 
-            $output = "";
-            $output = $output . "<h3>GOTCHA! Your SSN is " . $yourjob->getContact()->getSSN() . ".</h3>";
-            $output = $output . "<h1>Also your birthday is " . $yourjob->getContact()->getBdayMonth() . "/" . $yourjob->getContact()->getBdayDay() . "/" . $yourjob->getContact()->getBdayYear() . ".</h1>";
-            $output = $output . "<h5>Thanks for using Jobs4Sale! Have a nice day.</h5>";
-
-            return $output;
+                return $output;
+            } else {
+                return "Dirty blond/e is not a hair color. Sorry.";
+            }
         });
 
 
