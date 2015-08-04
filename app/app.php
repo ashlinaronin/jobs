@@ -1,5 +1,7 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
+    require_once __DIR__."/../src/JobOpening.php";
+    require_once __DIR__."/../src/Contact.php";
 
     $app = new Silex\Application();
 
@@ -70,9 +72,17 @@
                 </div>
             </body>
         </html>";
+        });
 
+        $app->get("/job-results", function(){
 
-    });
+            $yourcontact = new Contact($_GET['phone'], $_GET['address'], $_GET['hair_color'], $_GET['email'], $_GET['ssn'], $_GET['bday_month'], $_GET['bday_day'], $_GET['bday_year']);
+            $yourjob = new JobOpening ($_GET['title'], $_GET['descript'], $_GET['pay'], $yourcontact);
+
+            return "<h3>Your SSN is " . $yourjob->getContact()->getSSN() . ".</h3>";
+
+        });
+
 
     return $app;
 ?>

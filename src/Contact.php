@@ -2,14 +2,14 @@
 class Contact
 {
     private $info = array(
-        "phone" ==> 0,
-        "address" ==> "",
-        "hair_color" ==> "",
-        "email" ==> "",
-        "ssn" ==> int,
-        "bday_month" ==> 0,
-        "bday_day" ==> 0,
-        "bday_year" ==> 0,
+        "phone" => 0,
+        "address" => "",
+        "hair_color" => "",
+        "email" => "",
+        "ssn" => int,
+        "bday_month" => 0,
+        "bday_day" => 0,
+        "bday_year" => 0,
     );
 
     function __construct($contact_phone, $contact_address, $contact_hair_color, $contact_email, $contact_ssn, $contact_bday_month, $contact_bday_day, $contact_bday_year)
